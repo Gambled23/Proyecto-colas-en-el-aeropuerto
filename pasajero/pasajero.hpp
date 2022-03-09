@@ -16,7 +16,6 @@ public:
     int numeroMaletas;
     int aux;
     int id;
-    string destinoVuelo;
 };
 
 pasajero::pasajero()
