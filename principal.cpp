@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 #include "pasajero/pasajero.hpp"
+#include "nodo.hpp"
 
 /*
 1.- Comprar el Tiket almacenando los datos (Encolar)//TODO:
@@ -12,23 +13,22 @@
 6.- Abordar taxi (Encolar)                          //TODO:
 7.- Asignar maletas
 */
-pasajero maria, pedro, juan, ricardo, victor, tania, esteban, pablo;
 using namespace std;
 void asignarMaletas();
 void asignarAsiento();
 int main()
 {
-    asignarMaletas();
+    int opc = 1;
+    do
+    {
+        cout << "Ingresa el nombre del cliente: \n";
+        nodo *nuevo_nodo = new nodo();
+        cin >> nuevo_nodo->dato.nombre;
+        cout <<"Quiere agregar un nuevo cliente?\n 1) Si\n Cualquier otra opcion) No\n";
+    } while (opc == 1);
+
     return 0;
 }
 void asignarAsiento()
 {
-    maria.numeroMaletas = rand()%10;
-    pedro.numeroMaletas = rand()%10;
-    juan.numeroMaletas = rand()%10;
-    tania.numeroMaletas = rand()%10;
-    ricardo.numeroMaletas = rand()%10;
-    victor.numeroMaletas = rand()%10;
-    esteban.numeroMaletas = rand()%10;
-    pablo.numeroMaletas = rand()%10;
 }
