@@ -11,7 +11,8 @@ class pasajero
 public:
     pasajero();
     string nombre;
-    int asiento;
+    int numeroTicket;
+    int numeroAsiento;
     int numeroMaletas;
     int aux;
     int id;
