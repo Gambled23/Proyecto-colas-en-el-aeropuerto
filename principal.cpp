@@ -22,7 +22,9 @@ using namespace std;
 *Grafico
 //1.- Pedir nombres
 //2.- Comprar el Ticket almacenando los datos (Encolar)
-3.- Desemcolar compra de tickets
+//3.- Desemcolar compra de tickets 
+!El 3 tiene error al final, pues a la ID le suma 1 de mas y si son 5 monitos, imprime 5, pero durante unos
+!segundos se ve que el ultimo tiene la ID 6
 4.- Asignación de Asientos
 5.- Asignar numero de maletas (random)
 6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
@@ -41,6 +43,8 @@ int main()
     cola1->comprarTicket();
     animacionMonitoEncolar();
     Sleep(500);
+    animacionMonitoDesencolar();
+    system("cls");
     system("PAUSE");
     return 0;
 }
@@ -68,6 +72,7 @@ void animacionMonitoEncolar()
     int j = 0;
     int k = 90;
     int id = 1;
+
     do
     {
         for (int i = 0; i < k; i++) // El 50 es que tanto se mueve a la derecha
@@ -112,19 +117,20 @@ void animacionMonitoEncolar()
         k -= 7;
         id++;
     } while (j != numeroPasajeros);
-    system("pause>>cls");
 }
 void animacionMonitoDesencolar()
 {
-    system("cls");
-    cola1->mostrarCola();
-    int ban = 0;
-    int j = 0;
-    int k = 90;
-    int id = 1;
+    int id;
+    int count = 1;
+    int auxNumeroPasajeros = numeroPasajeros + 1;
     do
     {
-        for (int i = 0; i < k; i++) // El 50 es que tanto se mueve a la derecha
+        system("cls");
+        cola1->mostrarCola();
+        int j = 1;
+        int k = 0;
+        id = 0 + count;
+        do
         {
             gotoxy(95, 8);
             cout << "------------------";
@@ -142,29 +148,22 @@ void animacionMonitoDesencolar()
             cout << " /|\\";
             gotoxy(100, 12);
             cout << " / \\";
-            gotoxy(i, 9);       // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
+            gotoxy(90 - k, 9);  // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
             cout << "  " << id; // Lo que se imprime en esa posicion de x/y
-            gotoxy(i, 10);
+            gotoxy(90 - k, 10);
             cout << "  o";
-            gotoxy(i, 11);
+            gotoxy(90 - k, 11);
             cout << " /| \\";
-            if (ban == 0)
-            {
-                gotoxy(i, 12);
-                cout << " / ";
-                ban = 1;
-            }
-            else
-            {
-                gotoxy(i, 12);
-                cout << "   \\";
-                ban = 0;
-            }
+            gotoxy(90 - k, 12);
+            cout << " / \\";
             Sleep(10); // Velocidad con la que se desplaza
-        }
-        j++;
-        k -= 7;
-        id++;
-    } while (j != numeroPasajeros);
+            j++;
+            k += 7;
+            id++;
+        } while (j < auxNumeroPasajeros);
+        auxNumeroPasajeros--;
+        count++;
+        Sleep(700);
+    } while (auxNumeroPasajeros > 0);
     system("pause>>cls");
 }
