@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 #include "pasajero/pasajero.hpp"
+
 /*
 1.- Comprar el Tiket almacenando los datos (Encolar)//TODO:
 2.- Asignación de Asientos                          //TODO:
