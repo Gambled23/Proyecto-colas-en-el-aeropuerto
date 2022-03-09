@@ -9,7 +9,6 @@
 
 using namespace std;
 int ID = 1;
-int srand(time(NULL)); //Numeros aleatorios
 class cola
 {
 public:
@@ -146,10 +145,7 @@ void cola::mostrarCola()
     aux = h;
     while (aux != nullptr)
     {
-        cout << "Nombre de pasajero: " << aux->dato.nombre << endl;
-        cout << "ID de alumno: " << aux->dato.id << endl
-             << endl
-             << endl;
+        cout << aux->dato.id<<"-*"<<aux->dato.nombre<<"*    ";
         aux = aux->siguiente;
     }
 }
