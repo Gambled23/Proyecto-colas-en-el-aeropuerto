@@ -14,6 +14,7 @@ public:
     int asiento;
     int numeroMaletas;
     int aux;
+    int id;
     string destinoVuelo;
 };
 
