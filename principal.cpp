@@ -31,7 +31,6 @@ using namespace std;
 */
 using namespace std;
 void pedirNombres();
-void comprarTicket();
 cola *cola1 = new cola();
 int main()
 {
@@ -53,11 +52,4 @@ void pedirNombres()
         cout << "Quiere agregar un nuevo cliente?\n 1) Si\n Otro) No\n";
         cin >>opc;
     } while (opc != 2);
-}
-void comprarTicket()
-{
-
-}
-void asignarAsiento()
-{
 }
