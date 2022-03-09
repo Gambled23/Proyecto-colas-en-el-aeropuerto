@@ -2,12 +2,14 @@
 #define COLA_H
 #include <iostream>
 #include <cstdlib>
+#include <time.h>
 #include "nodo.hpp"
 #include "pasajero/pasajero.hpp"
 #pragma once
 
 using namespace std;
 int ID = 1;
+int srand(time(NULL)); //Numeros aleatorios
 class cola
 {
 public:
@@ -17,9 +19,13 @@ public:
     void inicializa();
     void queue(pasajero);
     void dequeue();
+    void comprarTicket();
+    void asignarAsientos();
+    void asignarNumeroMaletas();
     void first();
     void last();
     void tamanio();
+    void mostrarCola();
 };
 
 cola::cola()
@@ -69,6 +75,35 @@ void cola::dequeue()
         delete (aux);
     }
 }
+void cola::comprarTicket()
+{
+    nodo *aux = new nodo();
+    while (aux != nullptr)
+    {
+        aux->dato.numeroTicket = rand()%51; //Le da un numero aleatorio de ticket
+        aux = aux->siguiente;
+    }    
+}
+void cola::asignarAsientos()
+{
+    nodo *aux = new nodo();
+    int i = 1;
+    while (aux != nullptr)
+    {
+        aux->dato.numeroAsiento = i;
+        i++;
+        aux = aux->siguiente;
+    }
+}
+void cola::asignarNumeroMaletas()
+{
+    nodo *aux = new nodo();
+    while (aux != nullptr)
+    {
+        aux->dato.numeroMaletas = 1+rand()%(9-1); //Le da un numero aleatorio de maletas entre 1 y 8
+        aux = aux->siguiente;
+    }    
+}
 void cola::first()
 {
     if (h)
@@ -104,5 +139,18 @@ void cola::tamanio()
         aux = aux->siguiente;
     }
     cout << "La lista tiene " << cont << " elementos" << endl;
+}
+void cola::mostrarCola()
+{
+    nodo *aux = new nodo();
+    aux = h;
+    while (aux != nullptr)
+    {
+        cout << "Nombre de pasajero: " << aux->dato.nombre << endl;
+        cout << "ID de alumno: " << aux->dato.id << endl
+             << endl
+             << endl;
+        aux = aux->siguiente;
+    }
 }
 #endif
