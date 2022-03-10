@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <Windows.h>
 #include "nodo.hpp"
 #include "pasajero/pasajero.hpp"
 #pragma once
@@ -150,7 +151,7 @@ void cola::mostrarPasajeros()
     aux = h;
     while (aux)
     {
-        cout << "Pasajero " << aux->dato.id << endl
+        cout << "\t\t*Pasajero " << aux->dato.id<<"*" << endl
              << "Nombre: " << aux->dato.nombre << endl
              << "Destino: " << aux->dato.destino << endl
              << "Numero de ticket: " << aux->dato.numeroTicket << endl
@@ -158,6 +159,8 @@ void cola::mostrarPasajeros()
              << "Numero de maletas: " << aux->dato.numeroMaletas << endl
              << endl;
         aux = aux->siguiente;
+        system("PAUSE");
+        system("cls");
     }
 }
 #endif
