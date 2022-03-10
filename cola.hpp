@@ -18,13 +18,14 @@ public:
     void inicializa();
     void queue(pasajero);
     void dequeue();
-    void comprarTicket();
+    void comprarTicket(); // todo
     void asignarAsientos();
-    void asignarNumeroMaletas();
+    void asignarNumeroMaletas(); // todo
     void first();
     void last();
     void tamanio();
     void mostrarCola();
+    void mostrarPasajeros();
 };
 
 cola::cola()
@@ -51,8 +52,10 @@ void cola::queue(pasajero n)
         t = nuevo_nodo;
     }
     nuevo_nodo->dato.id = ID;
-    cout << "Se ha agregado con la ID '" << ID << "'" << endl;
     ID++;
+    cola::asignarAsientos();
+    cola::asignarNumeroMaletas();
+    cola::comprarTicket();
 }
 void cola::dequeue()
 {
@@ -74,34 +77,26 @@ void cola::dequeue()
         delete (aux);
     }
 }
-void cola::comprarTicket()
-{
-    nodo *aux = new nodo();
-    while (aux != nullptr)
-    {
-        aux->dato.numeroTicket = rand()%51; //Le da un numero aleatorio de ticket
-        aux = aux->siguiente;
-    }    
-}
+int asiento = 1;
 void cola::asignarAsientos()
 {
     nodo *aux = new nodo();
-    int i = 1;
-    while (aux != nullptr)
-    {
-        aux->dato.numeroAsiento = i;
-        i++;
-        aux = aux->siguiente;
-    }
+    aux = t;
+    aux->dato.numeroAsiento = asiento;
+    asiento++;
 }
 void cola::asignarNumeroMaletas()
 {
     nodo *aux = new nodo();
-    while (aux != nullptr)
-    {
-        aux->dato.numeroMaletas = 1+rand()%(9-1); //Le da un numero aleatorio de maletas entre 1 y 8
-        aux = aux->siguiente;
-    }    
+    aux = t;
+    srand(time(NULL));
+    aux->dato.numeroMaletas = 1 + rand() % (9 - 1);
+}
+void cola::comprarTicket()
+{
+    nodo *aux = new nodo();
+    aux = t;
+    t->dato.numeroTicket = 1 + rand() % 1000;
 }
 void cola::first()
 {
@@ -145,7 +140,23 @@ void cola::mostrarCola()
     aux = h;
     while (aux != nullptr)
     {
-        cout << aux->dato.id<<"-*"<<aux->dato.nombre<<"*    ";
+        cout << aux->dato.id << "-*" << aux->dato.nombre << "*    ";
+        aux = aux->siguiente;
+    }
+}
+void cola::mostrarPasajeros()
+{
+    nodo *aux = new nodo();
+    aux = h;
+    while (aux)
+    {
+        cout << "Pasajero " << aux->dato.id << endl
+             << "Nombre: " << aux->dato.nombre << endl
+             << "Destino: " << aux->dato.destino << endl
+             << "Numero de ticket: " << aux->dato.numeroTicket << endl
+             << "Numero de asiento: " << aux->dato.numeroAsiento << endl
+             << "Numero de maletas: " << aux->dato.numeroMaletas << endl
+             << endl;
         aux = aux->siguiente;
     }
 }
