@@ -22,9 +22,6 @@ public:
 
 pasajero::pasajero()
 {
-    srand(time(NULL));
     destino = "Ciudad de Mexico";
-    numeroTicket = rand() % 100;
-    //numeroMaletas = 1 + rand() % (9 - 1);
 }
 #endif
