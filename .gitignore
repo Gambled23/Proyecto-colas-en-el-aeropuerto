@@ -3,3 +3,5 @@ prueba monito.exe
 .vscode/launch.json
 cls
 principal.exe
+principal.o
+.vscode/settings.json
