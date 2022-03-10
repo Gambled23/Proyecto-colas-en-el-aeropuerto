@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
+#include <Windows.h>
 #include "pasajero/pasajero.hpp"
 #include "nodo.hpp"
 #include "cola.hpp"
@@ -25,8 +26,8 @@ using namespace std;
 //3.- Desemcolar compra de tickets 
 !El 3 tiene error al final, pues a la ID le suma 1 de mas y si son 5 monitos, imprime 5, pero durante unos
 !segundos se ve que el ultimo tiene la ID 6
-4.- Asignación de Asientos
-5.- Asignar numero de maletas (random)
+//4.- Asignación de Asientos
+//5.- Asignar numero de maletas (random)
 6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
 7.- Abordar Avión (Apilar)
 8.- Bajar de Avión (Desapilar)
