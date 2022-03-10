@@ -40,11 +40,14 @@ cola *cola1 = new cola();
 int main()
 {
     pedirNombres();
-    cola1->comprarTicket();
+    //cola1->comprarTicket();
     animacionMonitoEncolar();
     Sleep(500);
     animacionMonitoDesencolar();
     system("cls");
+    //cola1->asignarNumeroMaletas();
+    cola1->mostrarPasajeros();
+    Sleep(1000);
     system("PAUSE");
     return 0;
 }
@@ -165,5 +168,4 @@ void animacionMonitoDesencolar()
         count++;
         Sleep(700);
     } while (auxNumeroPasajeros > 0);
-    system("pause>>cls");
 }
