@@ -38,6 +38,7 @@ void pedirNombres();
 void animacionMonitoEncolar();
 void animacionMonitoDesencolar();
 void animacionMonitoEncolarMaletas();
+void animacionMonitoDesencolarMaletas();
 cola *cola1 = new cola();
 int main()
 {
@@ -48,7 +49,8 @@ int main()
     system("cls");
     cola1->mostrarPasajeros();
     animacionMonitoEncolarMaletas();
-    Sleep(10000);
+    animacionMonitoDesencolarMaletas();
+    //Sleep(10000);
     system("PAUSE");
     return 0;
 }
@@ -134,7 +136,7 @@ void animacionMonitoDesencolar()
         int j = 1;
         int k = 0;
         id = 0 + count;
-        do
+        while (j < auxNumeroPasajeros)
         {
             gotoxy(95, 8);
             cout << "------------------";
@@ -164,7 +166,7 @@ void animacionMonitoDesencolar()
             j++;
             k += 7;
             id++;
-        } while (j < auxNumeroPasajeros);
+        }
         auxNumeroPasajeros--;
         count++;
         Sleep(700);
@@ -206,13 +208,13 @@ void animacionMonitoEncolarMaletas()
             if (ban == 0)
             {
                 gotoxy(i, 12);
-                cout << " / []";
+                cout << " / ";
                 ban = 1;
             }
             else
             {
                 gotoxy(i, 12);
-                cout << "   \\[]";
+                cout << "   \\";
                 ban = 0;
             }
             Sleep(10); // Velocidad con la que se desplaza
@@ -221,4 +223,52 @@ void animacionMonitoEncolarMaletas()
         k -= 7;
         id++;
     } while (j != numeroPasajeros);
+}
+void animacionMonitoDesencolarMaletas()
+{
+    int id;
+    int count = 1;
+    int numeroMaletas;
+    int auxNumeroPasajeros = numeroPasajeros + 1;
+    do
+    {
+        system("cls");
+        cola1->mostrarCola();
+        int j = 1;
+        int k = 0;
+        id = 0 + count;
+        while (j < auxNumeroPasajeros)
+        {
+           gotoxy(96, 7);
+            cout << "Revision de maletas";
+            gotoxy(95, 8);
+            cout << "------------------";
+            gotoxy(95, 9);
+            cout << "|";
+            gotoxy(95, 12);
+            cout << "|";
+            gotoxy(100, 10);
+            cout << "  o";
+            gotoxy(100, 11);
+            cout << " /|\\";
+            gotoxy(100, 12);
+            cout << " / \\";
+            gotoxy(90 - k, 9);  // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
+            cout << "  " << id; // Lo que se imprime en esa posicion de x/y
+            gotoxy(90 - k, 10);
+            cout << "  o";
+            gotoxy(88 - k , 11);
+            cout << " []/| \\";
+            gotoxy(90 - k, 12);
+            cout << " / \\";
+            Sleep(10); // Velocidad con la que se desplaza
+            j++;
+            k += 7;
+            id++;
+        }
+        auxNumeroPasajeros--;
+        numeroMaletas = cola1->numeroMaletas(count);
+        count++;
+        Sleep(numeroMaletas * 500);
+    } while (auxNumeroPasajeros > 0);
 }
