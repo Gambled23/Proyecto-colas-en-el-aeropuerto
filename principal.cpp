@@ -16,7 +16,7 @@ using namespace std;
 //3.- Asignación de Asientos
 //4.- Asignar numero de maletas (random)
 //5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
-6.- Abordar Avión (Apilar) (Se hace al mismo momento de pedir los nombres)
+//6.- Abordar Avión (Apilar) (Se hace al mismo momento de pedir los nombres)
 7.- Bajar de Avión (Desapilar)
 8.- Abordar taxi (Encolar)
 
