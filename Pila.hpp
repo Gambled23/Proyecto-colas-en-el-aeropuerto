@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include "nodo.hpp"
 #include "pasajero/pasajero.hpp"
+#include "cola.hpp"
 
 #pragma once
 int id = 1;
