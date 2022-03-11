@@ -174,6 +174,9 @@ int cola::numeroMaletas(int n)
         aux = aux->siguiente;
         i++;
     }
-    return aux->dato.numeroMaletas;
+    if (aux) //Para no devolver dato de null
+    {
+        return aux->dato.numeroMaletas;
+    }
 }
 #endif

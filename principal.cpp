@@ -24,8 +24,6 @@ using namespace std;
 //1.- Pedir nombres
 //2.- Comprar el Ticket almacenando los datos (Encolar)
 //3.- Desemcolar compra de tickets
-!El 3 tiene error al final, pues a la ID le suma 1 de mas y si son 5 monitos, imprime 5, pero durante unos
-!segundos se ve que el ultimo tiene la ID 6
 //4.- Asignación de Asientos
 //5.- Asignar numero de maletas (random)
 6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
@@ -50,7 +48,7 @@ int main()
     cola1->mostrarPasajeros();
     animacionMonitoEncolarMaletas();
     animacionMonitoDesencolarMaletas();
-    //Sleep(10000);
+    // Sleep(10000);
     system("PAUSE");
     return 0;
 }
@@ -239,7 +237,7 @@ void animacionMonitoDesencolarMaletas()
         id = 0 + count;
         while (j < auxNumeroPasajeros)
         {
-           gotoxy(96, 7);
+            gotoxy(96, 7);
             cout << "Revision de maletas";
             gotoxy(95, 8);
             cout << "------------------";
@@ -257,7 +255,7 @@ void animacionMonitoDesencolarMaletas()
             cout << "  " << id; // Lo que se imprime en esa posicion de x/y
             gotoxy(90 - k, 10);
             cout << "  o";
-            gotoxy(88 - k , 11);
+            gotoxy(88 - k, 11);
             cout << " []/| \\";
             gotoxy(90 - k, 12);
             cout << " / \\";
@@ -268,6 +266,8 @@ void animacionMonitoDesencolarMaletas()
         }
         auxNumeroPasajeros--;
         numeroMaletas = cola1->numeroMaletas(count);
+        gotoxy(0, 3);
+        cout << "Numero de maletas: " << numeroMaletas;
         count++;
         Sleep(numeroMaletas * 500);
     } while (auxNumeroPasajeros > 0);
