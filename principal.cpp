@@ -15,7 +15,7 @@ using namespace std;
 //2.- Comprar el Ticket almacenando los datos (Encolar)
 //3.- Asignación de Asientos
 //4.- Asignar numero de maletas (random)
-5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
+//5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
 6.- Abordar Avión (Apilar)
 7.- Bajar de Avión (Desapilar)
 8.- Abordar taxi (Encolar)
@@ -26,8 +26,8 @@ using namespace std;
 //3.- Desemcolar compra de tickets
 //4.- Asignación de Asientos
 //5.- Asignar numero de maletas (random)
-6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
-7.- Abordar Avión (Apilar)
+//6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
+//7.- Abordar Avión (Apilar)
 8.- Bajar de Avión (Desapilar)
 9.- Abordar taxi (Encolar)
 */
@@ -37,6 +37,7 @@ void animacionMonitoEncolar();
 void animacionMonitoDesencolar();
 void animacionMonitoEncolarMaletas();
 void animacionMonitoDesencolarMaletas();
+void animacionViajeAvion();
 cola *cola1 = new cola();
 int main()
 {
@@ -48,7 +49,7 @@ int main()
     cola1->mostrarPasajeros();
     animacionMonitoEncolarMaletas();
     animacionMonitoDesencolarMaletas();
-    // Sleep(10000);
+    animacionViajeAvion();
     system("PAUSE");
     return 0;
 }
@@ -271,4 +272,36 @@ void animacionMonitoDesencolarMaletas()
         count++;
         Sleep(numeroMaletas * 500);
     } while (auxNumeroPasajeros > 0);
+}
+void animacionViajeAvion()
+{
+
+    int i = 0;
+    int x = 1;
+    do
+    {
+        system("cls");
+        gotoxy(40, 10);
+        cout << "Tiempo despues";
+        if (x == 1)
+        {
+            gotoxy(55, 10);
+            cout<<".";
+            x = 2;
+        }
+        else if (x == 2)
+        {
+            gotoxy(57, 10);
+            cout<<".";
+            x = 3;
+        }
+        else
+        {
+            gotoxy(59, 10);
+            cout<<".";
+            x = 1;
+        }
+        Sleep(200);
+        i++;
+    } while (i < 20);
 }
