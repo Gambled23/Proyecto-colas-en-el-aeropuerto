@@ -17,7 +17,7 @@ using namespace std;
 //4.- Asignar numero de maletas (random)
 //5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
 //6.- Abordar Avión (Apilar) (Se hace al mismo momento de pedir los nombres)
-7.- Bajar de Avión (Desapilar)
+//7.- Bajar de Avión (Desapilar)
 8.- Abordar taxi (Encolar)
 
 *Grafico
@@ -28,7 +28,7 @@ using namespace std;
 //5.- Asignar numero de maletas (random)
 //6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
 //7.- Abordar Avión (Apilar)
-8.- Bajar de Avión (Desapilar)
+//8.- Bajar de Avión (Desapilar)
 9.- Abordar taxi (Encolar)
 */
 using namespace std;
@@ -38,19 +38,21 @@ void animacionMonitoDesencolar();
 void animacionMonitoEncolarMaletas();
 void animacionMonitoDesencolarMaletas();
 void animacionViajeAvion();
+void animacionMonitoTaxi1();
 cola *cola1 = new cola();
 pila *pila1 = new pila();
 int main()
 {
-    pedirNombres();
-    animacionMonitoEncolar();
+    pedirNombres(); 
+    /*animacionMonitoEncolar();
     Sleep(500);
     animacionMonitoDesencolar();
     system("cls");
     cola1->mostrarPasajeros();
     animacionMonitoEncolarMaletas();
     animacionMonitoDesencolarMaletas();
-    animacionViajeAvion();
+    animacionViajeAvion();*/
+    animacionMonitoTaxi1();
     system("PAUSE");
     return 0;
 }
@@ -306,4 +308,42 @@ void animacionViajeAvion()
         Sleep(200);
         i++;
     } while (i < 20);
+}
+
+void animacionMonitoTaxi1()
+{
+    system("cls");
+    cola1->mostrarCola();
+    int ban = 0;
+    int j = 0;
+    int k = 90;
+    int id = numeroPasajeros;
+    do
+    {
+        for (int i = 0; i < k; i++) // El 50 es que tanto se mueve a la derecha
+        {
+            gotoxy(i, 9);       // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
+            cout << "  " << id; // Lo que se imprime en esa posicion de x/y
+            gotoxy(i, 10);
+            cout << "  o";
+            gotoxy(i, 11);
+            cout << " /| \\";
+            if (ban == 0)
+            {
+                gotoxy(i, 12);
+                cout << " / ";
+                ban = 1;
+            }
+            else
+            {
+                gotoxy(i, 12);
+                cout << "   \\";
+                ban = 0;
+            }
+            Sleep(10); // Velocidad con la que se desplaza
+        }
+        j++;
+        k -= 7;
+        id--;
+    } while (j != numeroPasajeros);
 }

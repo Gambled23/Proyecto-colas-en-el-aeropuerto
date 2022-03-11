@@ -20,6 +20,7 @@ public:
     void pop();
     void tamanoPila();
     void topPila();
+    int recuperarPila(int, int);
 };
 
 pila::pila()
@@ -39,7 +40,6 @@ void pila::push(pasajero n)
     nuevo_nodo->siguiente = h;
     h = nuevo_nodo;
     nuevo_nodo->dato.id = id;
-    cout << "Se ha agregado con la ID: " << id << endl;
     id++;
 }
 
@@ -48,7 +48,7 @@ void pila::pop()
     nodo *aux = h;
     if (aux)
     {
-        cout<<"pasajero "<<h->dato.nombre<<" eliminado"<<endl;
+        cout << "pasajero " << h->dato.nombre << " eliminado" << endl;
         h = aux->siguiente;
         delete (aux);
     }
@@ -70,7 +70,36 @@ void pila::tamanoPila()
 }
 void pila::topPila()
 {
-    cout<<"El top de la pila tiene la ID: "<<h->dato.id<<endl;
-    cout<<"Nombre del pasajero: "<<h->dato.nombre<<endl;
+    cout << "El top de la pila tiene la ID: " << h->dato.id << endl;
+    cout << "Nombre del pasajero: " << h->dato.nombre << endl;
 }
+int pila::recuperarPila(int opc, int n)
+{
+    nodo *aux = new nodo();
+    aux = h;
+    int i = 1;
+    while (i < n)
+    {
+        i++;
+        aux = aux->siguiente;
+    }
+    switch (opc)
+    {
+    case 1:
+        return aux->dato.id;
+        break;
+    case 2:
+        return aux->dato.numeroAsiento;
+        break;
+    case 3:
+        return aux->dato.numeroMaletas;
+        break;
+    case 4:
+        return aux->dato.numeroTicket;
+        break;
+    default:
+        break;
+    }
+}
+
 #endif
