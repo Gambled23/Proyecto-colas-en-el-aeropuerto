@@ -27,6 +27,7 @@ using namespace std;
 //4.- Asignación de Asientos
 //5.- Asignar numero de maletas (random)
 //6.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
+!Imprime una de mas el numero de maletas aunque ya no haya gente
 //7.- Abordar Avión (Apilar)
 //8.- Bajar de Avión (Desapilar)
 9.- Abordar taxi (Encolar)
@@ -43,7 +44,7 @@ cola *cola1 = new cola();
 pila *pila1 = new pila();
 int main()
 {
-    pedirNombres(); 
+    pedirNombres();
     animacionMonitoEncolar();
     Sleep(500);
     animacionMonitoDesencolar();
@@ -272,10 +273,7 @@ void animacionMonitoDesencolarMaletas()
         auxNumeroPasajeros--;
         numeroMaletas = cola1->numeroMaletas(count);
         gotoxy(0, 3);
-        if (j < auxNumeroPasajeros)
-        {
-            cout << "Numero de maletas: " << numeroMaletas;
-        }
+        cout << "Numero de maletas: " << numeroMaletas;
         count++;
         Sleep(numeroMaletas * 500);
     } while (auxNumeroPasajeros > 0);
@@ -293,19 +291,19 @@ void animacionViajeAvion()
         if (x == 1)
         {
             gotoxy(55, 10);
-            cout<<".";
+            cout << ".";
             x = 2;
         }
         else if (x == 2)
         {
             gotoxy(57, 10);
-            cout<<".";
+            cout << ".";
             x = 3;
         }
         else
         {
             gotoxy(59, 10);
-            cout<<".";
+            cout << ".";
             x = 1;
         }
         Sleep(200);
@@ -326,7 +324,7 @@ void animacionMonitoTaxi1()
         for (int i = 0; i < k; i++) // El 50 es que tanto se mueve a la derecha
         {
             gotoxy(0, 3);
-            cout<<"*AEROPUERTO FELIPE ANGELES - CIUDAD DE MEXICO*";
+            cout << "*AEROPUERTO FELIPE ANGELES - CIUDAD DE MEXICO*";
             gotoxy(i, 9);       // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
             cout << "  " << id; // Lo que se imprime en esa posicion de x/y
             gotoxy(i, 10);
