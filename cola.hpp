@@ -27,6 +27,7 @@ public:
     void tamanio();
     void mostrarCola();
     void mostrarPasajeros();
+    int numeroMaletas(int);
 };
 
 cola::cola()
@@ -162,5 +163,17 @@ void cola::mostrarPasajeros()
         system("PAUSE");
         system("cls");
     }
+}
+int cola::numeroMaletas(int n)
+{
+    nodo *aux = new nodo();
+    aux = h;
+    int i = 1;
+    while (i < n)
+    {
+        aux = aux->siguiente;
+        i++;
+    }
+    return aux->dato.numeroMaletas;
 }
 #endif
