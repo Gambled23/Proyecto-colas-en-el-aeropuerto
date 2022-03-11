@@ -19,15 +19,16 @@ public:
     void inicializa();
     void queue(pasajero);
     void dequeue();
-    void comprarTicket(); // todo
+    void comprarTicket(); 
     void asignarAsientos();
-    void asignarNumeroMaletas(); // todo
+    void asignarNumeroMaletas(); 
     void first();
     void last();
     void tamanio();
     void mostrarCola();
     void mostrarPasajeros();
     int numeroMaletas(int);
+    void transferirCola();
 };
 
 cola::cola()

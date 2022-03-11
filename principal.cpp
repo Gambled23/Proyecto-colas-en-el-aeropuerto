@@ -16,7 +16,7 @@ using namespace std;
 //3.- Asignación de Asientos
 //4.- Asignar numero de maletas (random)
 //5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
-6.- Abordar Avión (Apilar)
+6.- Abordar Avión (Apilar) (Se hace al mismo momento de pedir los nombres)
 7.- Bajar de Avión (Desapilar)
 8.- Abordar taxi (Encolar)
 
@@ -39,6 +39,7 @@ void animacionMonitoEncolarMaletas();
 void animacionMonitoDesencolarMaletas();
 void animacionViajeAvion();
 cola *cola1 = new cola();
+pila *pila1 = new pila();
 int main()
 {
     pedirNombres();
@@ -57,13 +58,14 @@ int numeroPasajeros = 0;
 void pedirNombres()
 {
     int opc = 1;
-    pasajero pasajerAux;
+    pasajero pasajeroAux;
     do
     {
         cout << "Ingresa el nombre del cliente: \n";
         nodo *nuevo_nodo = new nodo();
-        cin >> pasajerAux.nombre;
-        cola1->queue(pasajerAux);
+        cin >> pasajeroAux.nombre;
+        cola1->queue(pasajeroAux);
+        pila1->push(pasajeroAux);
         numeroPasajeros++;
         cout << "Quiere agregar un nuevo cliente?\n 1) Si\n Otro) No\n";
         cin >> opc;
