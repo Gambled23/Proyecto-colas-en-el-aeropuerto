@@ -8,7 +8,6 @@
 #include "Pila.hpp"
 #include "animacion monito.hpp"
 using namespace std;
-
 /*
 *Codigo
 //1.- Pedir nombres
@@ -31,8 +30,12 @@ using namespace std;
 //7.- Abordar Avión (Apilar)
 //8.- Bajar de Avión (Desapilar)
 9.- Abordar taxi (Encolar)
+
+TODO: Cambiar todas las velocidades de las animaciones a una variable global
 */
-using namespace std;
+
+
+//*Prototipo de funciones
 void pedirNombres();
 void animacionMonitoEncolar();
 void animacionMonitoDesencolar();
@@ -40,8 +43,14 @@ void animacionMonitoEncolarMaletas();
 void animacionMonitoDesencolarMaletas();
 void animacionViajeAvion();
 void animacionMonitoTaxi1();
+
 cola *cola1 = new cola();
 pila *pila1 = new pila();
+
+//*Variables globales
+int velocidad; //10 muy rapido, 100 normal
+int numeroPasajeros = 0;
+
 int main()
 {
     pedirNombres();
@@ -57,7 +66,6 @@ int main()
     system("PAUSE");
     return 0;
 }
-int numeroPasajeros = 0;
 void pedirNombres()
 {
     int opc = 1;
