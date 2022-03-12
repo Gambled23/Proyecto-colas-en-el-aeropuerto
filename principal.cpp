@@ -44,12 +44,13 @@ void animacionMonitoDesencolarMaletas();
 void animacionViajeAvion();
 void animacionMonitoTaxi1();
 
-cola *cola1 = new cola();
-pila *pila1 = new pila();
-
 //*Variables globales
 int velocidad; //10 muy rapido, 100 normal
 int numeroPasajeros = 0;
+
+//*Declaracion de pilas y colas
+cola *cola1 = new cola();
+pila *pila1 = new pila();
 
 int main()
 {
@@ -66,6 +67,8 @@ int main()
     system("PAUSE");
     return 0;
 }
+
+//*Desarollo de funciones
 void pedirNombres()
 {
     int opc = 1;
@@ -90,7 +93,6 @@ void animacionMonitoEncolar()
     int j = 0;
     int k = 90;
     int id = 1;
-
     do
     {
         for (int i = 0; i < k; i++) // El 50 es que tanto se mueve a la derecha
@@ -129,7 +131,7 @@ void animacionMonitoEncolar()
                 cout << "   \\";
                 ban = 0;
             }
-            Sleep(10); // Velocidad con la que se desplaza
+            Sleep(velocidad); // Velocidad con la que se desplaza
         }
         j++;
         k -= 7;
@@ -174,7 +176,7 @@ void animacionMonitoDesencolar()
             cout << " /| \\";
             gotoxy(90 - k, 12);
             cout << " / \\";
-            Sleep(10); // Velocidad con la que se desplaza
+            Sleep(velocidad); // Velocidad con la que se desplaza
             j++;
             k += 7;
             id++;
@@ -229,7 +231,7 @@ void animacionMonitoEncolarMaletas()
                 cout << "   \\";
                 ban = 0;
             }
-            Sleep(10); // Velocidad con la que se desplaza
+            Sleep(velocidad); // Velocidad con la que se desplaza
         }
         j++;
         k -= 7;
@@ -273,7 +275,7 @@ void animacionMonitoDesencolarMaletas()
             cout << " []/| \\";
             gotoxy(90 - k, 12);
             cout << " / \\";
-            Sleep(10); // Velocidad con la que se desplaza
+            Sleep(velocidad); // Velocidad con la que se desplaza
             j++;
             k += 7;
             id++;
@@ -351,7 +353,7 @@ void animacionMonitoTaxi1()
                 cout << "   \\";
                 ban = 0;
             }
-            Sleep(10); // Velocidad con la que se desplaza
+            Sleep(velocidad); // Velocidad con la que se desplaza
         }
         j++;
         k -= 7;
