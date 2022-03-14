@@ -17,7 +17,7 @@ using namespace std;
 //5.- Cola de revisión de maletas(Encolar) (Tardan segun cuanto equipaje tengan)
 //6.- Abordar Avión (Apilar) (Se hace al mismo momento de pedir los nombres)
 //7.- Bajar de Avión (Desapilar)
-8.- Abordar taxi (Encolar)
+//8.- Abordar taxi (Encolar)
 
 *Grafico
 //1.- Pedir nombres
@@ -29,9 +29,9 @@ using namespace std;
 !Imprime una de mas el numero de maletas aunque ya no haya gente
 //7.- Abordar Avión (Apilar)
 //8.- Bajar de Avión (Desapilar)
-9.- Abordar taxi (Encolar)
+//9.- Abordar taxi (Encolar)
 
-TODO: Cambiar todas las velocidades de las animaciones a una variable global
+//TODO: Cambiar todas las velocidades de las animaciones a una variable global
 */
 
 //*Prototipo de funciones
@@ -374,22 +374,6 @@ void animacionMonitoTaxi2()
     int auxNumeroPasajeros = numeroPasajeros + 1;
     system("cls");
     int l = 0;
-     /*
-     while (j < auxNumeroPasajeros)
-         {
-             gotoxy(90 - k, 9);  // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
-             cout << "  " << id; // Lo que se imprime en esa posicion de x/y
-             gotoxy(90 - k, 10);
-             cout << "  o";
-             gotoxy(90 - k, 11);
-             cout << " /| \\";
-             gotoxy(90 - k, 12);
-             cout << " / \\";
-             Sleep(velocidad); // Velocidad con la que se desplaza
-             j++;
-             k += 7;
-             id--;
-         }*/
     auxNumeroPasajeros--;
     count++;
     while (l < 100)
