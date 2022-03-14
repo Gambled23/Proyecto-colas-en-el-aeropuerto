@@ -34,7 +34,6 @@ using namespace std;
 TODO: Cambiar todas las velocidades de las animaciones a una variable global
 */
 
-
 //*Prototipo de funciones
 void pedirNombres();
 void animacionMonitoEncolar();
@@ -43,9 +42,10 @@ void animacionMonitoEncolarMaletas();
 void animacionMonitoDesencolarMaletas();
 void animacionViajeAvion();
 void animacionMonitoTaxi1();
+void animacionMonitoTaxi2();
 
 //*Variables globales
-int velocidad; //10 muy rapido, 100 normal
+int velocidad = 10; // 10 muy rapido, 100 normal
 int numeroPasajeros = 0;
 
 //*Declaracion de pilas y colas
@@ -64,6 +64,13 @@ int main()
     animacionMonitoDesencolarMaletas();
     animacionViajeAvion();
     animacionMonitoTaxi1();
+    do
+    {
+        animacionMonitoTaxi2();
+        numeroPasajeros--;
+        Sleep(500);
+    } while (numeroPasajeros != 0);
+    system("cls");
     system("PAUSE");
     return 0;
 }
@@ -359,4 +366,70 @@ void animacionMonitoTaxi1()
         k -= 7;
         id--;
     } while (j != numeroPasajeros);
+}
+void animacionMonitoTaxi2()
+{
+    int id;
+    int count = 1;
+    int auxNumeroPasajeros = numeroPasajeros + 1;
+    system("cls");
+    int l = 0;
+     /*
+     while (j < auxNumeroPasajeros)
+         {
+             gotoxy(90 - k, 9);  // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
+             cout << "  " << id; // Lo que se imprime en esa posicion de x/y
+             gotoxy(90 - k, 10);
+             cout << "  o";
+             gotoxy(90 - k, 11);
+             cout << " /| \\";
+             gotoxy(90 - k, 12);
+             cout << " / \\";
+             Sleep(velocidad); // Velocidad con la que se desplaza
+             j++;
+             k += 7;
+             id--;
+         }*/
+    auxNumeroPasajeros--;
+    count++;
+    while (l < 100)
+    {
+        system("cls");
+        cola1->mostrarCola();
+        gotoxy(l, 20);
+        cout << "     TAXI" << endl;
+        gotoxy(l, 21);
+        cout << "    _______" << endl;
+        gotoxy(l, 22);
+        cout << "   /   ||  \\" << endl;
+        gotoxy(l, 23);
+        cout << " _/    ||___\\__" << endl;
+        gotoxy(l, 24);
+        cout << "|  _       _   )" << endl;
+        gotoxy(l, 25);
+        cout << "|_/ \\_____/ \\__|" << endl;
+        gotoxy(l, 26);
+        cout << "  \\_/     \\_/" << endl;
+        int k = 0;
+        int j = 1;
+        id = numeroPasajeros;
+        do
+        {
+            gotoxy(90 - k, 9);  // i es el X, y se suma 1 cada que se mueve, para que se mueva a la derecha
+            cout << "  " << id; // Lo que se imprime en esa posicion de x/y
+            gotoxy(90 - k, 10);
+            cout << "  o";
+            gotoxy(90 - k, 11);
+            cout << " /| \\";
+            gotoxy(90 - k, 12);
+            cout << " / \\";
+            j++;
+            k += 7;
+            id--;
+        } while (j <= numeroPasajeros);
+
+        Sleep(velocidad);
+        l++;
+    }
+    Sleep(700);
 }
